@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.container {
+    border: 1px solid red;
+    height: 99.5vh;
+    width: 99.8vw;
+    display: flex;
+    background: url(./imgs/bg.jpg);
+}
+
+.main {
+    height: 99vh;
+    width: 72vw;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+}
+
+.controls {
+    height: 99vh;
+    width: 27vw;
+}
+
+.box {
+    border: 1px solid black;
+    height: 9.6vh;
+    filter: opacity(0.78);
+    color: white;
+}
