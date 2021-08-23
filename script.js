@@ -13,14 +13,65 @@ function makeBoxes() {
     box.classList.add("box");
     box.textContent = tiles[i];
     box.style.background = `${randColor()}`;
+    let players = document.createElement("div");
+    players.classList.add("players");
+    let player1 = document.createElement("img");
+    let player2 = document.createElement("img");
+    player1.src = "./imgs/p1.png";
+    player2.src = "./imgs/p2.png";
+    player1.setAttribute("id", `p1${tiles[i]}`);
+    player2.setAttribute("id", `p2${tiles[i]}`);
+    player1.style.opacity = tiles[i] == 1 ? 1 : 0;
+    player2.style.opacity = tiles[i] == 1 ? 1 : 0;
+    players.appendChild(player1);
+    players.appendChild(player2);
+    box.appendChild(players);
     main.appendChild(box);
   }
 }
+
 function _(id) {
   return document.getElementById(id);
 }
+
 function randColor() {
   let colors = ["#2aabe3", "#ee6625", "#3db54c", "#804da0", "#ffde05"];
   return colors[Math.floor(Math.random() * 5)];
 }
+
+function makeSnakes() {
+  let snakes = _("snakes");
+  for (let i = 1; i <= 6; i++) {
+    let snake = document.createElement("img");
+    snake.setAttribute("id", `s${i}`);
+    snake.src = `./imgs/snake${i}.png`;
+    snakes.appendChild(snake);
+  }
+}
+
+function makeLadders() {
+  let ladders = _("ladders");
+  for (let i = 1; i <= 4; i++) {
+    let ladder = document.createElement("img");
+    ladder.setAttribute("id", `l${i}`);
+    ladder.src = `./imgs/ladder${i}.png`;
+    ladders.appendChild(ladder);
+  }
+}
+let turn = 1;
+function rollDice(player) {
+  if (turn == player) {
+    let dice = Math.floor(Math.random() * 6) + 1;
+    _(`du${player}`).src = `./imgs/${dice}.png`;
+    _(`bgu${turn}`).style.background = "gainsboro";
+    calcScore(player);
+    turn = player == 1 ? 2 : 1;
+    _(`bgu${turn}`).style.background = "darkorange";
+  }
+}
+
+function calcScore(player) {}
+
 makeBoxes();
+makeSnakes();
+makeLadders();

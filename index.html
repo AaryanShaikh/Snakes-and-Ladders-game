@@ -5,14 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snakes & Ladders</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="main" id="main"></div>
-        <div class="controls"></div>
+        <div class="main" id="main">
+            <div class="snakes" id="snakes"></div>
+            <div class="ladders" id="ladders"></div>
+        </div>
+        <div class="controls">
+            <div class="users" id="bgu1">
+                <h1>Alex</h1>
+                <img src="./imgs/player1.png" id="u1">
+                <img src="./imgs/1.png" id="du1" onclick="rollDice(1)">
+            </div>
+            <div class="users" id="bgu2">
+                <h1>Alina</h1>
+                <img src="./imgs/player2.png" id="u2">
+                <img src="./imgs/1.png" id="du2" onclick="rollDice(2)">
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Satisfy&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,23 +10,23 @@ body {
 }
 
 .container {
-    border: 1px solid red;
-    height: 99.5vh;
-    width: 99.8vw;
+    height: 99.9vh;
+    width: 100vw;
     display: flex;
     background: url(./imgs/bg.jpg);
 }
 
 .main {
-    height: 99vh;
+    height: 100vh;
     width: 72vw;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
 }
 
 .controls {
-    height: 99vh;
-    width: 27vw;
+    height: 100vh;
+    width: 28vw;
+    ;
 }
 
 .box {
@@ -32,4 +34,123 @@ body {
     height: 9.6vh;
     filter: opacity(0.78);
     color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Satisfy', cursive;
+    font-size: xx-large;
+    text-shadow: 0px 0px 5px rgb(0 0 0);
+}
+
+:is(.snakes, .ladders) {
+    position: absolute;
+    height: 98.6vh;
+    width: 72vw;
+    z-index: 1;
+}
+
+:is(.snakes, .ladders) img {
+    position: absolute;
+}
+
+#s1 {
+    height: 40vh;
+    top: 60%;
+    left: 2%;
+}
+
+#s2 {
+    left: 3%;
+    height: 75vh;
+}
+
+#s3 {
+    top: 27%;
+    left: 40%;
+    transform: rotateY(180deg);
+    height: 40vh;
+}
+
+#s4 {
+    left: 43%;
+    height: 47vh;
+}
+
+#s5 {
+    left: 62%;
+    top: 60%;
+    height: 39vh;
+}
+
+#s6 {
+    left: 16%;
+    top: 12%;
+    height: 33vh;
+}
+
+#l1 {
+    top: 63%;
+    transform: rotateZ(29deg);
+    left: 36%;
+}
+
+#l2 {
+    top: 30%;
+    left: 36%;
+    transform: rotateZ(336deg);
+}
+
+#l3 {
+    top: 49%;
+    left: 76%;
+    transform: rotateZ(30deg);
+}
+
+#l4 {
+    left: 72%;
+    transform: rotateZ(32deg);
+}
+
+.players {
+    border: 1px solid black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.users {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: gainsboro;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 20px 20px rgb(0 0 0 / 65%);
+}
+
+.users::before {
+    content: 'Your Turn';
+    position: absolute;
+    z-index: 0;
+    font-size: 5em;
+    color: gainsboro;
+}
+
+:is(#u1, #u2) {
+    height: 20vh;
+    z-index: 1;
+}
+
+#bgu1 {
+    background: darkorange;
+}
+
+.users h1 {
+    font-family: 'Architects Daughter', cursive;
 }
