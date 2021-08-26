@@ -142,6 +142,10 @@ body {
     color: gainsboro;
 }
 
+.users p::after {
+    content: attr(score);
+}
+
 :is(#u1, #u2) {
     height: 20vh;
     z-index: 1;
@@ -153,4 +157,48 @@ body {
 
 .users h1 {
     font-family: 'Architects Daughter', cursive;
+}
+
+.users p {
+    font-family: 'Architects Daughter';
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.res {
+    position: absolute;
+    z-index: 1;
+    background: transparent;
+    backdrop-filter: sepia(0.5) blur(3px) brightness(0.5);
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.wincard {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #00b4db, #0083b0);
+    border-radius: 49px;
+    box-shadow: inset 0px 0px 20px 4px rgb(0 0 0 / 52%);
+}
+
+.wincard img {
+    height: 40vh;
+}
+
+.wincard p {
+    font-family: 'Satisfy';
+    font-size: xxx-large;
+    font-weight: 600;
+    color: aliceblue;
+    text-shadow: 0px 0px 11px rgb(0 0 0 / 65%);
 }

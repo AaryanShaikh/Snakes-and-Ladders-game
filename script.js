@@ -1,3 +1,10 @@
+class players {
+  constructor(name, img) {
+    this.name = name;
+    this.img = img;
+  }
+}
+
 function makeBoxes() {
   let tiles = [
     100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 81, 82, 83, 84, 85, 86, 87, 88, 89,
@@ -64,13 +71,62 @@ function rollDice(player) {
     let dice = Math.floor(Math.random() * 6) + 1;
     _(`du${player}`).src = `./imgs/${dice}.png`;
     _(`bgu${turn}`).style.background = "gainsboro";
-    calcScore(player);
+    calcScore(player, dice);
     turn = player == 1 ? 2 : 1;
     _(`bgu${turn}`).style.background = "darkorange";
   }
 }
+let p1score = 1,
+  p2score = 1;
+let ladderspos = [4, 28, 45, 54];
+let incpos = [36, 49, 64, 92];
+let snakespos = [34, 40, 66, 83, 95, 99];
+let decpos = [8, 2, 35, 59, 56, 21];
+function calcScore(player, dice) {
+  if (player == 1) {
+    if (p1score + dice < 100) {
+      _(`p1${p1score}`).style.opacity = 0;
+      p1score += dice;
+      p1score = isLadder(p1score);
+      p1score = isSnake(p1score);
+      _("text1").setAttribute("score", p1score);
+      _(`p1${p1score}`).style.opacity = 1;
+    }
+    if (p1score + dice == 100) {
+      _(`p1${p1score}`).style.opacity = 0;
+      p1score += dice;
+      _("text1").setAttribute("score", p1score);
+      _(`p1${p1score}`).style.opacity = 1;
+      isWinner(player);
+    }
+  } else {
+    if (p2score + dice < 100) {
+      _(`p2${p2score}`).style.opacity = 0;
+      p2score += dice;
+      p2score = isLadder(p2score);
+      p2score = isSnake(p2score);
+      _("text2").setAttribute("score", p2score);
+      _(`p2${p2score}`).style.opacity = 1;
+    }
+    if (p2score + dice == 100) {
+      _(`p2${p2score}`).style.opacity = 0;
+      p2score += dice;
+      _("text2").setAttribute("score", p2score);
+      _(`p2${p2score}`).style.opacity = 1;
+      isWinner(player);
+    }
+  }
+}
 
-function calcScore(player) {}
+function isWinner(player) {}
+
+function isLadder(score) {
+  return ladderspos.includes(score) ? incpos[ladderspos.indexOf(score)] : score;
+}
+
+function isSnake(score) {
+  return snakespos.includes(score) ? decpos[snakespos.indexOf(score)] : score;
+}
 
 makeBoxes();
 makeSnakes();
